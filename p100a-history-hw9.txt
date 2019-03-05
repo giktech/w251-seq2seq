@@ -1,0 +1,472 @@
+    1  ls
+    2  wget https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64
+    3  dpkg -i cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64
+    4  sudo apt-key add /var/cuda-repo-10-0-local-10.0.130-410.48/7fa2af80.pub
+    5  apt-get update
+    6  apt-get install cuda
+    7  history
+    8  sudo apt-get update
+    9  sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+   10  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   11  sudo apt-key fingerprint 0EBFCD88
+   12  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   13  $(lsb_resease -cs) \
+   14  stable"
+   15  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   16  $(lsb_resease -cs) \
+   17  stable"
+   18  sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   19     $(lsb_release -cs) \
+   20     stable"
+   21  ls
+   22  sudo apt-get update
+   23  vi /etc/apt/sources.list
+   24  sudo apt-get update
+   25  apt-cache madison docker-ce
+   26  curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey |   sudo apt-key add -
+   27  distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+   28  export distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+   29  curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list |   sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+   30  apt-get update
+   31  apt-get install -y nvidia-docker2
+   32  docker version
+   33  sudo apt-get install docker-ce=5:18.09.2~3-0~ubuntu-xenial
+   34  docker run hello-world
+   35  apt-get install -y nvidia-docker2
+   36  pkill -SIGHUP dockerd
+   37  docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+   38  histtory
+   39  history
+   40  fdisk -l
+   41  cd
+   42  mkdir -m 777 /data
+   43  mkfs.ext4 /dev/xvdc
+   44  vi /etc/fstab
+   45  mount /data
+   46  history
+   47  service docker stop
+   48  cd /var/lib
+   49  cp -r docker /data
+   50  rm -fr docker
+   51  ln -s /data/docker ./docker
+   52  service docker start
+   53  docker login nvcr.io
+   54  docker pull nvcr.io/nvidia/tensorflow:19.01-py
+   55  docker pull nvcr.io/nvidia/tensorflow:19.01-py3
+   56  ls
+   57  mkdir uc
+   58  ls
+   59  cd uc
+   60  ls
+   61  svn checkout
+   62  apt install subversion
+   63  svn checkout
+   64  svn checkout https://github.com/MIDS-scaling-up/v2/week09/hw
+   65  https://github.com/MIDS-scaling-up/v2/tree/master/week09/hw
+   66  svn checkout https://github.com/MIDS-scaling-up/v2/tree/master/week09/hw
+   67  wget https://github.com/MIDS-scaling-up/v2/tree/master/week09/hw
+   68  ls
+   69  cd hw
+   70  ls
+   71  cd hw
+   72  rm hw
+   73  ls
+   74  curl https://github.com/MIDS-scaling-up/v2/tree/master/week09/hw
+   75  ls
+   76  history
+   77  svn checkout
+   78  svn checkout https://github.com/MIDS-scaling-up/v2/trunk/week09/hw
+   79  ls
+   80  rm uc
+   81  rmdir uc
+   82  cd hw
+   83  ls
+   84  cd hw
+   85  ls
+   86  cd docker/
+   87  ls
+   88  vi start.sh
+   89  ls
+   90  docker build
+   91  docker build .
+   92  ls
+   93  docker images
+   94  docker build
+   95  docker images
+   96  vi Dockerfile
+   97  ls
+   98  docker images
+   99  ls
+  100  vi arm64/
+  101  ls
+  102  cd arm64/
+  103  ls
+  104  cd ..
+  105  ls
+  106  vi start.sh
+  107  ls
+  108  docker build -f Dockerfile -t openseq2seq:v1
+  109  ls
+  110  docker build -t openseq2seq:v1 .
+  111  ls
+  112  docker images
+  113  docker run --runtime=nvidia -d --name openseq2seq --net=host -e SSH_PORT=4444 -v /data:/data -p 6006:6006 openseq2seq
+  114  docker run --runtime=nvidia -d --name openseq2seq:v1 --net=host -e SSH_PORT=4444 -v /data:/data -p 6006:6006 openseq2seq
+  115  ls
+  116  docker build -t openseq2seq .
+  117  ls
+  118  docker images
+  119  docker image rm b490cd2c1280
+  120  docker image rm -f b490cd2c1280
+  121  ls
+  122  docker images
+  123  ls
+  124  docker build -t OpenSeq2Seq .
+  125  docker build -t openSeq2Seq .
+  126  docker build -t openseq2seq .
+  127  docker images
+  128  docker run --runtime=nvidia -d --name openseq2seq --net=host -e SSH_PORT=4444 -v /data:/data -p 6006:6006 openseq2seq
+  129  docker ps
+  130  docker exec -ti openseq2seq bash
+  131  cd
+  132  docker exec -ti openseq2seq bash
+  133  exit
+  134  docker ps
+  135  docker exec -ti openseq2seq bash
+  136  ifconfig -a
+  137  mpirun -n 2 -H 10.186.7.206,10.186.7.208 --allow-run-as-root hostname
+  138  apt install openmpi-bin
+  139  mpirun -n 2 -H 10.186.7.206,10.186.7.208 --allow-run-as-root hostname
+  140  cat /proc/1/cgroup
+  141  docker exec -ti openseq2seq bash
+  142  ls
+  143  cd /data
+  144  ls
+  145  cd 
+  146  cd /root
+  147  ls
+  148  cd
+  149  docker ps
+  150  docker exec -ti openseq2seq bash
+  151  exit
+  152  ls
+  153  history
+  154  docker exec -ti openseq2seq bash
+  155  ifconfig -a
+  156  docker exec -ti openseq2seq bash
+  157  ifconfig -a
+  158  docker exec -ti openseq2seq bash
+  159  exit
+  160  exit
+  161  docker exec -ti openseq2seq bash
+  162  tcpdump -i eth0
+  163  ps 
+  164  docker exec -ti openseq2seq bash
+  165  apt-get install iftop
+  166  iftop
+  167  apt-get install nload
+  168  nload
+  169  exit
+  170  ls
+  171  docker images
+  172  exit
+  173  docker exec -ti openseq2seq bash
+  174  sudo ~/tegrastats
+  175  cd
+  176  ls
+  177  top
+  178  cat /proc/cpuinfo
+  179  ls
+  180  nvidia-smi
+  181  history
+  182  nvidia-smi
+  183  docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+  184  history
+  185  docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+  186  nvidia-smi
+  187  nvidia-smi --format=csv --query-gpu=power.draw,utilization.gpu,fan.speed,temperature.gpu
+  188  nvidia-smi --help-query-gpu
+  189  mpirun -n 2 -H 10.186.7.206,10.186.7.208  --allow-run-as-root nvidia-smi
+  190  docker exec -ti openseq2seq bash
+  191  exit
+  192  mpirun -n 2 -H 10.186.7.206,10.186.7.208  --allow-run-as-root nvidia-smi
+  193  docker exec -ti openseq2seq bash
+  194  ls
+  195  docker exec -ti openseq2seq bash
+  196  iftop
+  197  history
+  198  nload
+  199  ls
+  200  history
+  201  history >> p100a-history-hw9.txt
+    1  ls
+    2  wget https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64
+    3  dpkg -i cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64
+    4  sudo apt-key add /var/cuda-repo-10-0-local-10.0.130-410.48/7fa2af80.pub
+    5  apt-get update
+    6  apt-get install cuda
+    7  history
+    8  sudo apt-get update
+    9  sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+   10  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   11  sudo apt-key fingerprint 0EBFCD88
+   12  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   13  $(lsb_resease -cs) \
+   14  stable"
+   15  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   16  $(lsb_resease -cs) \
+   17  stable"
+   18  sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   19     $(lsb_release -cs) \
+   20     stable"
+   21  ls
+   22  sudo apt-get update
+   23  vi /etc/apt/sources.list
+   24  sudo apt-get update
+   25  apt-cache madison docker-ce
+   26  curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey |   sudo apt-key add -
+   27  distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+   28  export distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+   29  curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list |   sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+   30  apt-get update
+   31  apt-get install -y nvidia-docker2
+   32  docker version
+   33  sudo apt-get install docker-ce=5:18.09.2~3-0~ubuntu-xenial
+   34  docker run hello-world
+   35  apt-get install -y nvidia-docker2
+   36  pkill -SIGHUP dockerd
+   37  docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+   38  histtory
+   39  history
+   40  fdisk -l
+   41  cd
+   42  mkdir -m 777 /data
+   43  mkfs.ext4 /dev/xvdc
+   44  vi /etc/fstab
+   45  mount /data
+   46  history
+   47  service docker stop
+   48  cd /var/lib
+   49  cp -r docker /data
+   50  rm -fr docker
+   51  ln -s /data/docker ./docker
+   52  service docker start
+   53  docker login nvcr.io
+   54  docker pull nvcr.io/nvidia/tensorflow:19.01-py
+   55  docker pull nvcr.io/nvidia/tensorflow:19.01-py3
+   56  ls
+   57  mkdir uc
+   58  ls
+   59  cd uc
+   60  ls
+   61  svn checkout
+   62  apt install subversion
+   63  svn checkout
+   64  svn checkout https://github.com/MIDS-scaling-up/v2/week09/hw
+   65  https://github.com/MIDS-scaling-up/v2/tree/master/week09/hw
+   66  svn checkout https://github.com/MIDS-scaling-up/v2/tree/master/week09/hw
+   67  wget https://github.com/MIDS-scaling-up/v2/tree/master/week09/hw
+   68  ls
+   69  cd hw
+   70  ls
+   71  cd hw
+   72  rm hw
+   73  ls
+   74  curl https://github.com/MIDS-scaling-up/v2/tree/master/week09/hw
+   75  ls
+   76  history
+   77  svn checkout
+   78  svn checkout https://github.com/MIDS-scaling-up/v2/trunk/week09/hw
+   79  ls
+   80  rm uc
+   81  rmdir uc
+   82  cd hw
+   83  ls
+   84  cd hw
+   85  ls
+   86  cd docker/
+   87  ls
+   88  vi start.sh
+   89  ls
+   90  docker build
+   91  docker build .
+   92  ls
+   93  docker images
+   94  docker build
+   95  docker images
+   96  vi Dockerfile
+   97  ls
+   98  docker images
+   99  ls
+  100  vi arm64/
+  101  ls
+  102  cd arm64/
+  103  ls
+  104  cd ..
+  105  ls
+  106  vi start.sh
+  107  ls
+  108  docker build -f Dockerfile -t openseq2seq:v1
+  109  ls
+  110  docker build -t openseq2seq:v1 .
+  111  ls
+  112  docker images
+  113  docker run --runtime=nvidia -d --name openseq2seq --net=host -e SSH_PORT=4444 -v /data:/data -p 6006:6006 openseq2seq
+  114  docker run --runtime=nvidia -d --name openseq2seq:v1 --net=host -e SSH_PORT=4444 -v /data:/data -p 6006:6006 openseq2seq
+  115  ls
+  116  docker build -t openseq2seq .
+  117  ls
+  118  docker images
+  119  docker image rm b490cd2c1280
+  120  docker image rm -f b490cd2c1280
+  121  ls
+  122  docker images
+  123  ls
+  124  docker build -t OpenSeq2Seq .
+  125  docker build -t openSeq2Seq .
+  126  docker build -t openseq2seq .
+  127  docker images
+  128  docker run --runtime=nvidia -d --name openseq2seq --net=host -e SSH_PORT=4444 -v /data:/data -p 6006:6006 openseq2seq
+  129  docker ps
+  130  docker exec -ti openseq2seq bash
+  131  cd
+  132  docker exec -ti openseq2seq bash
+  133  exit
+  134  docker ps
+  135  docker exec -ti openseq2seq bash
+  136  ifconfig -a
+  137  mpirun -n 2 -H 10.186.7.206,10.186.7.208 --allow-run-as-root hostname
+  138  apt install openmpi-bin
+  139  mpirun -n 2 -H 10.186.7.206,10.186.7.208 --allow-run-as-root hostname
+  140  cat /proc/1/cgroup
+  141  docker exec -ti openseq2seq bash
+  142  ls
+  143  cd /data
+  144  ls
+  145  cd 
+  146  cd /root
+  147  ls
+  148  cd
+  149  docker ps
+  150  docker exec -ti openseq2seq bash
+  151  exit
+  152  ls
+  153  history
+  154  docker exec -ti openseq2seq bash
+  155  ifconfig -a
+  156  docker exec -ti openseq2seq bash
+  157  ifconfig -a
+  158  docker exec -ti openseq2seq bash
+  159  exit
+  160  exit
+  161  docker exec -ti openseq2seq bash
+  162  tcpdump -i eth0
+  163  ps 
+  164  docker exec -ti openseq2seq bash
+  165  apt-get install iftop
+  166  iftop
+  167  apt-get install nload
+  168  nload
+  169  exit
+  170  ls
+  171  docker images
+  172  exit
+  173  docker exec -ti openseq2seq bash
+  174  sudo ~/tegrastats
+  175  cd
+  176  ls
+  177  top
+  178  cat /proc/cpuinfo
+  179  ls
+  180  nvidia-smi
+  181  history
+  182  nvidia-smi
+  183  docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+  184  history
+  185  docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+  186  nvidia-smi
+  187  nvidia-smi --format=csv --query-gpu=power.draw,utilization.gpu,fan.speed,temperature.gpu
+  188  nvidia-smi --help-query-gpu
+  189  mpirun -n 2 -H 10.186.7.206,10.186.7.208  --allow-run-as-root nvidia-smi
+  190  docker exec -ti openseq2seq bash
+  191  exit
+  192  mpirun -n 2 -H 10.186.7.206,10.186.7.208  --allow-run-as-root nvidia-smi
+  193  docker exec -ti openseq2seq bash
+  194  ls
+  195  docker exec -ti openseq2seq bash
+  196  iftop
+  197  history
+  198  nload
+  199  history
+  200  exit
+  201  ls
+  202  history
+  203  history >> p100a-history-hw9.txt
+  204  ls
+  205  cd hw
+  206  ls
+  207  cd ..
+  208  ls
+  209  cd
+  210  ls
+  211  cd
+  212  history
+  213  docker exec -ti openseq2seq bash
+  214  apt install nmon
+  215  nmon
+  216  history
+  217  iftop
+  218  ifconfig -a
+  219  ethtool eth0
+  220  apt-get install iptraf-ng
+  221  iptraf
+  222  apt install iptraf
+  223  iptraf
+  224  iftop
+  225  nmon
+  226  nmon -h
+  227  nmon
+  228  clear
+  229  exit
+  230  docker exec -ti openseq2seq bash
+  231  cd /data
+  232  ls
+  233  cd en-de-transformer/
+  234  ls
+  235  cd best
+  236  cd best_models/
+  237  ls
+  238  cd
+  239  ls
+  240  history
+  241  exit
+  242  ls
+  243  cd /data
+  244  ls
+  245  ls -la
+  246  cd en-de-transformer/
+  247  ls
+  248  ls -la
+  249  pwd
+  250  ls
+  251  cd best_models/
+  252  ls
+  253  pwd
+  254  cd /data
+  255  ls
+  256  cd docker/
+  257  ls
+  258  cd ..
+  259  cd en-de-transformer/
+  260  ls
+  261  cd ..
+  262  ls
+  263  cd
+  264  ls
+  265  docker ps
+  266  docker cp 902067e3b37d:/root/OpenSeq2Seq/nohup.out .
+  267  ls
+  268  vi nohup.out 
+  269  tail nohup.out 
+  270  ls
+  271  history >> p100a-history-hw9.txt 
